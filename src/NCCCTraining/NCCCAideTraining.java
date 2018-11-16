@@ -21,8 +21,13 @@ public class NCCCAideTraining {
 		return aides;
 	}
 	
+	public static String getInput(String phrase, Scanner kb) {
+		System.out.println(phrase);
+		return kb.nextLine();
+	}
+	
 	public static Aide createAide() {
 		Scanner kb = new Scanner(System.in);
-		System.out.println("Enter the Aides First Name: ");
+		String fName = getInput("Please enter the Aides First Name: ", kb);
 	}
 }
