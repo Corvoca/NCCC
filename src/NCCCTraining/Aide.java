@@ -1,16 +1,16 @@
 package NCCCTraining;
 
-public class Aide {
+public class Aide implements Comparable {
 	private String bDay;
-	private long hoursTrained;
+	private double hoursTrained;
 	private String fName;
 	private String lName;
-	private char mInit;
+	private String mInit;
 	private String dateOfHire;
 	private String hoursTrainedResetDate;
 	
 	
-	public Aide(String bDay, long hoursTrained, String fName, String lName, char mInit, String dateOfHire, String hoursTrainedResetDate) {
+	public Aide(String bDay, double hoursTrained, String fName, String lName, String mInit, String dateOfHire, String hoursTrainedResetDate) {
 		this.bDay = bDay; this.hoursTrained = hoursTrained; this.fName = fName; this.lName = lName; this.mInit = mInit;
 		this.dateOfHire = dateOfHire; this.hoursTrainedResetDate = hoursTrainedResetDate;
 	}
@@ -23,7 +23,7 @@ public class Aide {
 		this.bDay = bDay;
 	}
 
-	public long getHoursTrained() {
+	public double getHoursTrained() {
 		return hoursTrained;
 	}
 
@@ -49,11 +49,11 @@ public class Aide {
 	}
 
 
-	public char getmInit() {
+	public String getmInit() {
 		return mInit;
 	}
 	
-	public void setmInit(char mInit) {
+	public void setmInit(String mInit) {
 		this.mInit = mInit;
 	}
 
@@ -71,5 +71,14 @@ public class Aide {
 
 	public void setHoursTrainedResetDate(String hoursTrainedResetDate) {
 		this.hoursTrainedResetDate = hoursTrainedResetDate;
+	}
+	
+	public String toString() {
+		return this.bDay + ":" + this.hoursTrained + ":" + this.fName + ":" + this.lName + ":" + this.mInit + ":" + this.dateOfHire + ":" + this.hoursTrainedResetDate;
+	}
+
+	@Override
+	public int compareTo(Object o) { 
+		return 0;
 	}
 }

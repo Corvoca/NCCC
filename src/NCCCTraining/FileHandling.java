@@ -43,14 +43,14 @@ public class FileHandling {
 		return objects;
 	}
 	
-	public static void writeToFile(String fileName, ArrayList<String> objects) {
+	public static void writeToFile(String fileName, ArrayList<Aide> objects) {
 		PrintWriter fout = openOutputFile(fileName);
 		if (fout.equals(null)) {
 			System.out.println("Writing Failed!");
 		}
 		
 		for (int i = 0; i < objects.size(); i++) {
-			 fout.println(objects.get(i));
+			 fout.println(objects.get(i).toString());
 		}
 		fout.flush();
 	}
