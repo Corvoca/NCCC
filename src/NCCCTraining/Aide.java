@@ -5,13 +5,12 @@ public class Aide implements Comparable {
 	private double hoursTrained;
 	private String fName;
 	private String lName;
-	private String mInit;
 	private String dateOfHire;
 	private String hoursTrainedResetDate;
 	
 	
-	public Aide(String bDay, double hoursTrained, String fName, String lName, String mInit, String dateOfHire, String hoursTrainedResetDate) {
-		this.bDay = bDay; this.hoursTrained = hoursTrained; this.fName = fName; this.lName = lName; this.mInit = mInit;
+	public Aide(String bDay, double hoursTrained, String fName, String lName, String dateOfHire, String hoursTrainedResetDate) {
+		this.bDay = bDay; this.hoursTrained = hoursTrained; this.fName = fName; this.lName = lName;
 		this.dateOfHire = dateOfHire; this.hoursTrainedResetDate = hoursTrainedResetDate;
 	}
 
@@ -48,15 +47,6 @@ public class Aide implements Comparable {
 		this.lName = lName;
 	}
 
-
-	public String getmInit() {
-		return mInit;
-	}
-	
-	public void setmInit(String mInit) {
-		this.mInit = mInit;
-	}
-
 	public String getDateOfHire() {
 		return dateOfHire;
 	}
@@ -74,7 +64,7 @@ public class Aide implements Comparable {
 	}
 	
 	public String toString() {
-		return this.bDay + ":" + this.hoursTrained + ":" + this.fName + ":" + this.lName + ":" + this.mInit + ":" + this.dateOfHire + ":" + this.hoursTrainedResetDate;
+		return this.bDay + ":" + this.hoursTrained + ":" + this.fName + ":" + this.lName + ":" + this.dateOfHire + ":" + this.hoursTrainedResetDate;
 	}
 
 	@Override
