@@ -66,6 +66,10 @@ public class Aide implements Comparable {
 	public String toString() {
 		return this.bDay + ":" + this.hoursTrained + ":" + this.fName + ":" + this.lName + ":" + this.dateOfHire + ":" + this.hoursTrainedResetDate;
 	}
+	
+	public String displayString() {
+		return this.lName;
+	}
 
 	@Override
 	public int compareTo(Object o) { 

@@ -1,15 +1,58 @@
 package NCCCTraining;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class NCCCAideTraining {
+	
+	static ArrayList<String> fileLines;
+	static ArrayList<Aide> aides;
 
 	public static void main(String[] args) {
-		ArrayList<String> fileLines = FileHandling.copyFileToArray(FileHandling.openInputFile("testFile.txt"));
-		ArrayList<Aide> aides = createAideObjects(fileLines);
+		fileLines = FileHandling.copyFileToArray(FileHandling.openInputFile("testFile.txt"));
+		aides = createAideObjects(fileLines);
+		Collections.sort(aides);
+		mainMenu();
+	}
+	
+	public static void mainMenu() {
+		int cho = -1;
+		while (cho != 6) {
+			displayOptions();
+			cho = getInt();
+			switch (cho) {
+			case 1:
+				aides.add(createAide());
+				Collections.sort(aides);
+				FileHandling.writeToFile("testFile.txt", aides);
+				break;
+			case 2:
+				
+				System.out.println(2);
+				break;
+			case 3:
+				System.out.println(3);
+				break;
+			case 4:
+				System.out.println(4);
+				break;
+			case 5:
+				System.out.println(5);
+				break;
+			}
+		}
+	}
+	
+	public static void displayOptions() {
+		System.out.println("Input the corresponding number for the desired option: ");
+		System.out.println("1.  Add an employee.");
+		System.out.println("2.  Show employee's under 50 hours.");
+		System.out.println("3.  Show employee's over 50 hours.");
+		System.out.println("4.  Show all employee's");
+		System.out.println("5.  Show employee's whose hours reset today.");
+		System.out.println("6.  EXIT (MUST USE THIS TO ENSURE ALL CHANGES ARE SAVED!!!)");
 	}
 	
 	public static ArrayList<Aide> createAideObjects(ArrayList<String> fileLines) {
@@ -24,6 +67,26 @@ public class NCCCAideTraining {
 	public static String getInput(String phrase, Scanner kb) {
 		System.out.print(phrase);
 		return kb.nextLine();
+	}
+	
+	public static int getInt() {
+		Scanner kb = new Scanner(System.in);
+		int dub = -1;
+		while (dub == -1) {
+			try {
+				dub = kb.nextInt();
+				kb.nextLine();
+			}
+			catch (Exception e) {
+				System.out.println("Invalid Option!");
+				kb.nextLine();
+			}
+			if (dub < 1 || dub > 6) {
+				System.out.println("Invalid Option!");
+				dub = -1;
+			}
+		}
+		return dub;
 	}
 	
 	public static double getDouble(String phrase, Scanner kb) {
@@ -86,6 +149,10 @@ public class NCCCAideTraining {
 		Calendar resetDate = getReset(doh);
 		String rDate = (resetDate.get(Calendar.MONTH) + 1) + "/" + resetDate.get(Calendar.DAY_OF_MONTH) + "/" + resetDate.get(Calendar.YEAR);
 		return new Aide(bDay, hoursTrained, fName, lName, dateOfHire, rDate);
+	}
+	
+	public static void printAides(ArrayList<Aide> aides) {
+		
 	}
 
 }
